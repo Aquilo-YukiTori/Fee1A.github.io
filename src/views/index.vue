@@ -54,7 +54,7 @@
 
 <script>
 // @ is an alias to /src
-import mhead from '@/components/mhead'
+import mhead from '@/components/mhead';
 
 export default {
   name: 'index',
