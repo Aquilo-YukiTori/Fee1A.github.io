@@ -40,6 +40,8 @@
               <i class='iconfont'>&#xe610;</i>
             </a>
           </div>
+          <p>{{ signature }}</p>
+          <textarea v-model='signature'></textarea>
         </aside>
     	</transition>
     	<transition name='CutIn-from-bottom' appear>
@@ -54,7 +56,7 @@
 
 <script>
 // @ is an alias to /src
-import mhead from '@/components/mhead';
+import mhead from '@/components/mhead'
 
 export default {
   name: 'index',
@@ -66,7 +68,8 @@ export default {
         Icon2: false,
         Icon3: false,
         Icon4: false
-      }
+      },
+      signature: ''
     }
   },
   methods: {
@@ -75,7 +78,19 @@ export default {
     },
     IconClear: function (index) {
       this.Icon_Show['Icon' + index] = false
+    },
+    pageInit: function () {
+      let t = this
+      t.axios({
+        method: 'GET',
+        url: '',
+        params: {}
+      })
     }
+  },
+  mounted: function () {
+    let t = this
+    t.pageInit()
   },
   components: {
   	mhead
